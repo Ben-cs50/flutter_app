@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Expense Tracker'),
-          backgroundColor: const Color.fromARGB(222, 26, 223, 125),
+          backgroundColor: const Color(0xFF1A1A24) ,//fromARGB(222, 26, 223, 125),
         ),
 
         body: Column(
