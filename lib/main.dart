@@ -18,9 +18,11 @@ class MainApp extends StatelessWidget {
         ),
 
         body: Column(
+          
           children: [
             SizedBox(height: 10.0),
             ClipOval(
+            
               child: Image.network(
                 height: 50,
                 fit: BoxFit.cover,
@@ -28,13 +30,13 @@ class MainApp extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10.0),
-            MenuItem(icon: Icons.home, title: 'Dashboard'),
+            MenuItem(icon: Icons.home, title: 'Dashboard', onTap: () {}, ),
             SizedBox(height: 10.0),
-            MenuItem(title: 'Transactions', icon: Icons.receipt),
+            MenuItem(title: 'Transactions', icon: Icons.receipt, onTap: () {},),
             SizedBox(height: 10.0),
-            MenuItem(title: 'Analytics', icon: Icons.analytics),
+            MenuItem(title: 'Analytics', icon: Icons.analytics, onTap: () {},),
             SizedBox(height: 10.0),
-            MenuItem(title: 'Budgets', icon: Icons.account_balance),
+            MenuItem(title: 'Budgets', icon: Icons.account_balance, onTap: () {},),
           ],
         ),
       ),
