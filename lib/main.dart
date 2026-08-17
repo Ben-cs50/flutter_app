@@ -21,12 +21,15 @@ class MainApp extends StatelessWidget {
           
           children: [
             SizedBox(height: 10.0),
-            ClipOval(
-            
-              child: Image.network(
-                height: 50,
-                fit: BoxFit.cover,
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRllE5B1hwxmrgl_Mof16Y7N3axkoBdjAsTUfCZ3DSeww&s=10',
+            Align(
+              alignment: Alignment.centerRight,
+              child: ClipOval(
+              
+                child: Image.network(
+                  height: 50,
+                  fit: BoxFit.cover,
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRllE5B1hwxmrgl_Mof16Y7N3axkoBdjAsTUfCZ3DSeww&s=10',
+                ),
               ),
             ),
             SizedBox(height: 10.0),
