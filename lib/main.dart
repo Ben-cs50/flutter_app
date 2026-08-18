@@ -42,6 +42,7 @@ class MainApp extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10.0),
+                const Divider(color: Colors.grey, thickness: 0.5),
                 MenuItem(icon: Icons.home, title: 'Dashboard', onTap: () {}),
                 const SizedBox(height: 10.0),
                 MenuItem(title: 'Transactions', icon: Icons.receipt, onTap: () {}),
