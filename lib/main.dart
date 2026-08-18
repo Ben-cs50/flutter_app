@@ -15,6 +15,8 @@ class MainApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Expense Tracker'),
           backgroundColor: const Color(0xFF1A1A24),
+
+          iconTheme: const IconThemeData (color: Colors.white),
         ),
         
         
