@@ -12,9 +12,11 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        extendBodyBehindAppBar: true,
         appBar: AppBar(
           title: const Text('Expense Tracker'),
-          backgroundColor: const Color(0xFF1A1A24),
+          backgroundColor: const Color(0xFF1A1A24).withOpacity(0.8),
+          elevation: 0,
 
           iconTheme: const IconThemeData (color: Colors.white),
         ),
@@ -53,8 +55,15 @@ class MainApp extends StatelessWidget {
         ),
         
         
-        body: const Center(
-          child: Text('Main Content Area (Dashboard, etc.)'),
+        body: SizedBox(
+          height: double.infinity ,
+          width: double.infinity,
+          
+          child: Image.network(
+            'https://i.pinimg.com/474x/cb/90/9d/cb909db943872a2963aa92914b9fc754.jpg',
+            fit: BoxFit.cover,
+            ),
+        
         ),
       ),
     );
