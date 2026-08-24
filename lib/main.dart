@@ -1,4 +1,3 @@
-import 'package:expensetracker/widgets/menu_item.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,62 +9,72 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          title: const Text('Expense Tracker'),
-          backgroundColor: const Color(0xFF1A1A24).withOpacity(0.8),
-          elevation: 0,
+    return const MaterialApp(
+      home: HomeView(), 
+    );
+  }
+}
 
-          iconTheme: const IconThemeData (color: Colors.white),
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  // Track the active index here
+  int _currentPageIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        title: const Text('Expense Tracker'),
+        backgroundColor: const Color(0xFF1A1A24).withOpacity(0.8),
+        elevation: 0,
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
+      body: SizedBox(
+        height: double.infinity,
+        width: double.infinity,
+        child: Image.network(
+          'https://i.pinimg.com/474x/cb/90/9d/cb909db943872a2963aa92914b9fc754.jpg',
+          fit: BoxFit.cover,
         ),
-        
-        
-        drawer: Drawer(
-          child: SafeArea( 
-            child: Column(
-              children: [
-                const SizedBox(height: 10.0),
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 16.0), 
-                    child: ClipOval(
-                      child: Image.network(
-                        height: 50,
-                        width: 50, 
-                        fit: BoxFit.cover,
-                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRllE5B1hwxmrgl_Mof16Y7N3axkoBdjAsTUfCZ3DSeww&s=10',
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10.0),
-                const Divider(color: Colors.grey, thickness: 0.5),
-                MenuItem(icon: Icons.home, title: 'Dashboard', onTap: () {}),
-                const SizedBox(height: 10.0),
-                MenuItem(title: 'Transactions', icon: Icons.receipt, onTap: () {}),
-                const SizedBox(height: 10.0),
-                MenuItem(title: 'Analytics', icon: Icons.analytics, onTap: () {}),
-                const SizedBox(height: 10.0),
-                MenuItem(title: 'Budgets', icon: Icons.account_balance, onTap: () {}),
-              ],
-            ),
+      ),
+      bottomNavigationBar: NavigationBar(
+        height: 60.0,
+        backgroundColor: Colors.amber[50],
+        selectedIndex: _currentPageIndex,
+        onDestinationSelected: (int index) {
+          setState(() {
+            _currentPageIndex = index;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.home_outlined),
+            selectedIcon: Icon(Icons.home),
+            label: 'Home',
           ),
-        ),
-        
-        
-        body: SizedBox(
-          height: double.infinity ,
-          width: double.infinity,
-          
-          child: Image.network(
-            'https://i.pinimg.com/474x/cb/90/9d/cb909db943872a2963aa92914b9fc754.jpg',
-            fit: BoxFit.cover,
-            ),
-        
-        ),
+          NavigationDestination(
+            icon: Icon(Icons.receipt),
+            selectedIcon: Icon(Icons.receipt_long),
+            label: 'Activity',
+          ),
+           NavigationDestination(
+            icon: Icon(Icons.analytics_outlined),
+            selectedIcon: Icon(Icons.analytics_outlined),
+            label: 'Analytics',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.settings_outlined),
+            selectedIcon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
+        ],
       ),
     );
   }
