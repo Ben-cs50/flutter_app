@@ -69,18 +69,8 @@ class _InsightPageState extends State<InsightPage> {
         }
 
         return DateFormat.yMMMMEEEEd().format(cdate);
-    
-
-     
-
-
-
-
-
-
-
-
-        return cdate.toIso8601String();
+        
+        // return cdate.toIso8601String();
     }
 
     final sortedTransactions = [...transactions]
@@ -142,7 +132,7 @@ class _InsightPageState extends State<InsightPage> {
                               style: TextStyle(color: Colors.white, fontSize: 16),
                             ),
                             Text(
-                              sortedTransactions[index].amount.toString(),
+                              '${tx.isIncoming ? '+' : '-'}\KES ${tx.amount.toStringAsFixed(2)}',
                               style: TextStyle(color: Colors.white, fontSize: 14),
                             ),
                           ],
