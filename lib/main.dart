@@ -49,7 +49,7 @@ class _HomeViewState extends State<HomeView> {
         title:  Text(_titles[_currentPageIndex] ),
         backgroundColor: const Color(0xFF1A1A24).withOpacity(0.8),
         elevation: 0,
-        titleTextStyle: TextStyle(color: Colors.white, fontSize: 14),
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       // 2. Use a Stack to keep the background image behind the active screen
