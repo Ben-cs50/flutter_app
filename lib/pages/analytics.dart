@@ -131,7 +131,8 @@ class _InsightPageState extends State<InsightPage> {
                           children: [
                             Text(
                               tx.name,
-                              style: TextStyle(color: Colors.white, fontSize: 16),
+                              
+                              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                             ),
                             Text(
                               '${tx.isIncoming ? '+' : '-'}\KES ${oCcy.format(tx.amount)}',
