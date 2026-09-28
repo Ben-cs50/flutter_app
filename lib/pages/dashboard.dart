@@ -36,9 +36,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         Row(
                           children:[
                             Text(
-                               "KES 20,000",
-                               style:TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
-                               
+                              "KES 20,000",
+                              style:TextStyle(color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+                              
                             ),
                             Spacer(),
                             Icon(
@@ -49,16 +49,64 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ]
 
                         ),
+                        const SizedBox(height: 30),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              
+                              children: [
+                                Text(
+                                  "Total Spent",
+                                  style:TextStyle(color: Colors.white),
+                                  ),
+                            
+                                  Text(
+                                  "KES 23,000",
+                                  style:TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+                                  ),
+                                
+                              ]
+                            ),
+
+
+      
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.end,
+
+                              children: [
+                                Text(
+                                  "This Month",
+                                  style:TextStyle(color: Colors.white),
+                                  ),
+                            
+                                  Text(
+                                  "Sept 29, 2026",
+                                  style:TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),
+                                  ),
+                                
+                              ]
+                            ),
+
+                          ],
+                          
+                        ),
+                        
                         
                       ]
+                      
+                      
                     
                     ),
                   ),
             
           
         ),
+        
       
         ]
+        
           
         
         
