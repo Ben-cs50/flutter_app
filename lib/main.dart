@@ -1,3 +1,4 @@
+import 'package:expensetracker/pages/analytics.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,26 +24,50 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  // Track the active index here
   int _currentPageIndex = 0;
+
+  // 1. Add all 4 screens to match your 4 navigation destinations
+  final List<Widget> _screens = [
+    const Center(child: Text(' ', style: TextStyle(color: Colors.white, fontSize: 24))),
+    const Center(child: Text(' ', style: TextStyle(color: Colors.white, fontSize: 24))),
+    InsightPage(),
+    const Center(child: Text(' ', style: TextStyle(color: Colors.white, fontSize: 24))),
+  ];
+
+    final List<String> _titles = [
+    'Home',
+    'Activity',
+    'Your Spending',
+    'Settings'
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text('Expense Tracker'),
+        title:  Text(_titles[_currentPageIndex] ),
         backgroundColor: const Color(0xFF1A1A24).withOpacity(0.8),
         elevation: 0,
+        titleTextStyle: TextStyle(color: Colors.white, fontSize: 14),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: SizedBox(
-        height: double.infinity,
-        width: double.infinity,
-        child: Image.network(
-          'https://i.pinimg.com/474x/cb/90/9d/cb909db943872a2963aa92914b9fc754.jpg',
-          fit: BoxFit.cover,
-        ),
+      // 2. Use a Stack to keep the background image behind the active screen
+      body: Stack(
+        children: [
+          SizedBox.expand(
+            child: Image.network(
+              'https://i.pinimg.com/474x/cb/90/9d/cb909db943872a2963aa92914b9fc754.jpg',
+              fit: BoxFit.cover,
+            ),
+          ),
+          // Dark overlay to make text readable over the background image
+          Container(color: Colors.black.withOpacity(0.4)),
+          // Active content screen
+          SafeArea(
+            child: _screens[_currentPageIndex],
+          ),
+        ],
       ),
       bottomNavigationBar: NavigationBar(
         height: 60.0,
@@ -64,9 +89,9 @@ class _HomeViewState extends State<HomeView> {
             selectedIcon: Icon(Icons.receipt_long),
             label: 'Activity',
           ),
-           NavigationDestination(
+          NavigationDestination(
             icon: Icon(Icons.analytics_outlined),
-            selectedIcon: Icon(Icons.analytics_outlined),
+            selectedIcon: Icon(Icons.analytics),
             label: 'Analytics',
           ),
           NavigationDestination(
@@ -79,3 +104,4 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 }
+
