@@ -12,6 +12,8 @@ class InsightPage extends StatefulWidget {
 class _InsightPageState extends State<InsightPage> {
   @override
   Widget build(BuildContext context) {
+    final oCcy = new NumberFormat("#,##0.00", "en_US"); 
+
     List<TransactionModel> transactions = [
       TransactionModel(
         isIncoming: false,
@@ -49,7 +51,7 @@ class _InsightPageState extends State<InsightPage> {
         amount: 800,
       ),
        TransactionModel(
-        isIncoming: true,
+        isIncoming: false,
         name: 'Shopping',
         type: 'expense',
         date: DateTime(2026, 09, 28),
@@ -128,22 +130,22 @@ class _InsightPageState extends State<InsightPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              sortedTransactions[index].name,
+                              tx.name,
                               style: TextStyle(color: Colors.white, fontSize: 16),
                             ),
                             Text(
-                              '${tx.isIncoming ? '+' : '-'}\KES ${tx.amount.toStringAsFixed(2)}',
+                              '${tx.isIncoming ? '+' : '-'}\KES ${oCcy.format(tx.amount)}',
                               style: TextStyle(color: Colors.white, fontSize: 14),
                             ),
                           ],
                         ),
                       ),
                       Icon(
-                        sortedTransactions[index].isIncoming
+                        tx.isIncoming
                             ? Icons.arrow_downward
                             : Icons.arrow_upward,
                         size: 18,
-                        color: sortedTransactions[index].isIncoming
+                        color: tx.isIncoming
                             ? Colors.green
                             : Colors.red,
                       ),
