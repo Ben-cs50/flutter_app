@@ -20,6 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         mainAxisAlignment: MainAxisAlignment.start,
 
         children: [
+           const SizedBox(height: 5),
           Container(
             height: 180,
             width: MediaQuery.of(context).size.width,
@@ -135,7 +136,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
              
                      ),
            ),
-              SizedBox(height: 230,child: InsightPage()),
+              SizedBox(height: 220,child: InsightPage()),
 
           //end of actions
         ],

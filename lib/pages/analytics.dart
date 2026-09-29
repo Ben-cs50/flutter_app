@@ -38,12 +38,12 @@ class _InsightPageState extends State<InsightPage> {
         category: 'Shopping'
       ),
       TransactionModel(
-        isIncoming: true,
-        name: 'Mapato',
-        type: 'income',
+        isIncoming: false,
+        name: 'SAF-HOME',
+        type: 'expense',
         date: DateTime(2026, 09, 2),
-        amount: 25000,
-        category:'Salary'
+        amount: 2500,
+        category:'Internet'
       ),
       TransactionModel(
         isIncoming: false,
@@ -60,6 +60,14 @@ class _InsightPageState extends State<InsightPage> {
         date: DateTime(2026, 09, 28),
         amount: 2000,
         category: 'Shopping'
+      ),
+      TransactionModel(
+        isIncoming: false,
+        name: 'Java House',
+        type: 'expense',
+        date: DateTime(2026, 09, 29),
+        amount: 2000,
+        category: 'Food'
       ),
     ];
     String dateHeader(DateTime cdate) {
@@ -96,6 +104,7 @@ class _InsightPageState extends State<InsightPage> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+             const SizedBox(height: 5),
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),

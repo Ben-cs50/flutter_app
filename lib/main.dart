@@ -1,3 +1,4 @@
+import 'package:expensetracker/pages/activity.dart';
 import 'package:expensetracker/pages/analytics.dart';
 import 'package:expensetracker/pages/dashboard.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
   // 1. Add all 4 screens to match your 4 navigation destinations
   final List<Widget> _screens = [
     DashboardScreen(),
-    const Center(child: Text(' ', style: TextStyle(color: Colors.white, fontSize: 24))),
+    AtivityPage(),
     InsightPage(),
     const Center(child: Text(' ', style: TextStyle(color: Colors.white, fontSize: 24))),
   ];
