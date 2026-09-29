@@ -173,7 +173,7 @@ class TxTile extends StatelessWidget {
                 ),
                 child: Icon(Icons.card_travel, size: 18, color: Colors.white),
               ),
-              SizedBox(width: 30),
+              SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,7 +216,8 @@ class TxTile extends StatelessWidget {
                       
                     ),
                      Text(
-                      transaction.name,
+                      // transaction.name, 
+                      'date to be here',
                       style: TextStyle(color: Colors.white, fontSize: 14),
 
                     
