@@ -2,7 +2,9 @@ import 'package:expensetracker/pages/analytics.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+   DashboardScreen({super.key, 
+  this.balanceVisible = false});
+    bool balanceVisible = false;
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -11,6 +13,7 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
+   
     return Padding(
       padding: const EdgeInsets.only(left: 10, right: 10),
       child: Column(
@@ -34,7 +37,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   Row(
                     children: [
                       Text(
-                        "KES 20,000",
+                       widget.balanceVisible == true ? "KES 20,000" : "KES .....",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 30,
@@ -42,7 +45,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
                       Spacer(),
-                      Icon(Icons.visibility_outlined, color: Colors.white),
+                      GestureDetector(
+                        onTap: () { setState(() {
+                          widget.balanceVisible=!widget.balanceVisible;
+                        });
+                          
+                          
+                          },
+                        child: Icon(Icons.visibility_outlined, color: Colors.white),),
                       const SizedBox(width: 30),
                     ],
                   ),
