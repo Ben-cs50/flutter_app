@@ -1,3 +1,4 @@
+import 'package:expensetracker/pages/analytics.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -95,22 +96,42 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
           ),
 
-          const SizedBox(height: 24),
+          const SizedBox(height: 18),
 
           // end of dashboard
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              QuickActionCard(title: "Add Expense", icon: Icons.add),
-               QuickActionCard(title: "Add Income", icon: Icons.send),
-                QuickActionCard(title: "More", icon: Icons.more_horiz),
-            ],
+          Padding(
+            padding: const EdgeInsets.only(left:2.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                QuickActionCard(title: "Add Expense", icon: Icons.add),
+                 QuickActionCard(title: "Add Income", icon: Icons.send),
+                  QuickActionCard(title: "More", icon: Icons.more_horiz),
+              ],
+            ),
           ),
+          const SizedBox(height: 18),
+
+           Padding(
+             padding: const EdgeInsets.only(left:2.0),
+             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Recent Activity", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize:18)),
+                Text("See all", style: TextStyle(color: Colors.white)),
+
+              ]
+                     
+             
+                     ),
+           ),
+              SizedBox(height: 230,child: InsightPage()),
 
           //end of actions
         ],
         
       ),
+     
     );
   }
 }

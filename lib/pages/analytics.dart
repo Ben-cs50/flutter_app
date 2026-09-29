@@ -93,7 +93,7 @@ class _InsightPageState extends State<InsightPage> {
             ListView.builder(
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
-              itemCount: dates.length,
+              itemCount:dates.length,
               itemBuilder: (BuildContext context, int index) {
                 final cdate = dates[index];
                 final dateTransanctions = grouped[cdate];
