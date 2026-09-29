@@ -180,7 +180,7 @@ class TxTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      transaction.name,
+                      transaction.category,
                       maxLines: 1,
 
                       style: TextStyle(
@@ -190,7 +190,8 @@ class TxTile extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      '${transaction.isIncoming ? '+' : '-'}\KES ${oCcy.format(transaction.amount)}',
+                       transaction.name,
+                      maxLines: 1,
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ],
