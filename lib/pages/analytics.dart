@@ -15,45 +15,51 @@ class _InsightPageState extends State<InsightPage> {
     List<TransactionModel> transactions = [
       TransactionModel(
         isIncoming: false,
-        name: 'Utilities',
+        name: 'Kenya Power',
         type: 'expense',
         date: DateTime(2026, 09, 23),
         amount: 3000,
+        category: 'Utilities'
       ),
       TransactionModel(
         isIncoming: true,
-        name: 'Salary',
+        name: 'Uber',
         type: 'income',
         date: DateTime(2026, 09, 23),
         amount: 30000,
+        category: 'Transport'
       ),
       TransactionModel(
         isIncoming: false,
-        name: 'Shopping',
+        name: 'QuickMart',
         type: 'expense',
         date: DateTime(2026, 09, 24),
         amount: 400,
+        category: 'Shopping'
       ),
       TransactionModel(
         isIncoming: true,
-        name: 'Salary',
+        name: 'Mapato',
         type: 'income',
         date: DateTime(2026, 09, 2),
         amount: 25000,
+        category:'Salary'
       ),
       TransactionModel(
         isIncoming: false,
-        name: 'Groceries',
+        name: 'Carrefour',
         type: 'expense',
         date: DateTime(2026, 09, 21),
         amount: 800,
+        category: 'Groceries'
       ),
       TransactionModel(
         isIncoming: false,
-        name: 'Shopping',
+        name: 'Carrefour',
         type: 'expense',
         date: DateTime(2026, 09, 28),
         amount: 2000,
+        category: 'Shopping'
       ),
     ];
     String dateHeader(DateTime cdate) {
@@ -160,6 +166,7 @@ class TxTile extends StatelessWidget {
               Container(
                 height: 50,
                 width: 50,
+                 
                 decoration: BoxDecoration(
                   color: Colors.yellow.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(10),
@@ -174,6 +181,7 @@ class TxTile extends StatelessWidget {
                   children: [
                     Text(
                       transaction.name,
+                      maxLines: 1,
 
                       style: TextStyle(
                         color: Colors.amber,
@@ -186,15 +194,41 @@ class TxTile extends StatelessWidget {
                       style: TextStyle(color: Colors.white, fontSize: 14),
                     ),
                   ],
+
+                  
                 ),
+               
               ),
-              Icon(
-                transaction.isIncoming
-                    ? Icons.arrow_downward
-                    : Icons.arrow_upward,
-                size: 18,
-                color: transaction.isIncoming ? Colors.green : Colors.red,
-              ),
+              // amount column
+               Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      '${transaction.isIncoming ? '+' : '-'}\KES ${oCcy.format(transaction.amount)}',
+                        style: TextStyle(
+                        color: Colors.amber,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      
+                      
+                    ),
+                     Text(
+                      transaction.name,
+                      style: TextStyle(color: Colors.white, fontSize: 14),
+
+                    
+                    ),
+                  ],
+                ),
+              // Icon(
+              //   transaction.isIncoming
+              //       ? Icons.arrow_downward
+              //       : Icons.arrow_upward,
+              //   size: 18,
+              //   color: transaction.isIncoming ? Colors.green : Colors.red,
+              // ),
             ],
           ),
         ),

@@ -1,6 +1,7 @@
 
 class TransactionModel {
   final String name;
+  final String category;
   final String type;
   final DateTime date;
   final double amount;
@@ -11,7 +12,8 @@ class TransactionModel {
     required this.type,
     required this.date,
     required this.amount,
-     required this.isIncoming
+     required this.isIncoming,
+     required this.category
 
   });
 
@@ -21,7 +23,8 @@ class TransactionModel {
       type: json['type'],
       date: json['date'],
       amount: json['amount'],
-      isIncoming: json['isIncoming']
+      isIncoming: json['isIncoming'],
+      category: json['category']
 
     );
   }
@@ -32,6 +35,7 @@ class TransactionModel {
       'date': date,
       'amount': amount,
       'isIncoming': isIncoming,
+      'catgory': category,
     };
   }
 }
