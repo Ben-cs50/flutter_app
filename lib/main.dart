@@ -31,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
   // 1. Add all 4 screens to match your 4 navigation destinations
   final List<Widget> _screens = [
     DashboardScreen(),
-    AtivityPage(),
+    ActivityPage(),
     InsightPage(),
     const Center(child: Text(' ', style: TextStyle(color: Colors.white, fontSize: 24))),
   ];

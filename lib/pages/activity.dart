@@ -1,14 +1,16 @@
+import 'package:expensetracker/model/transaction.dart';
 import 'package:flutter/material.dart';
 
-class AtivityPage extends StatefulWidget {
-  AtivityPage({super.key, this.activeFilter = "All"});
+class ActivityPage extends StatefulWidget {
+  final TransactionModel ? transactions;
+  ActivityPage({super.key, this.activeFilter = "All", this.transactions});
   String activeFilter;
 
   @override
-  State<AtivityPage> createState() => _AtivityPageState();
+  State<ActivityPage> createState() => _ActivityPageState();
 }
 
-class _AtivityPageState extends State<AtivityPage> {
+class _ActivityPageState extends State<ActivityPage> {
   @override
   Widget build(BuildContext context) {
     
@@ -116,7 +118,7 @@ class FilterCard extends StatelessWidget {
 
   final String title;
   Color color;
-  GestureTapCallback? onTap;
+  GestureTapCallback ? onTap;
   final bool isActive;
 
   @override
